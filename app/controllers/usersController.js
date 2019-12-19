@@ -22,7 +22,7 @@ module.exports.loginCreate=(req,res)=>{
         return user.generateToken()
     })
     .then(function(token){
-        res.setHeader('x-auth',token).send({})
+        res.send(token)
     })
     .catch((err)=>{
         res.send(err)
