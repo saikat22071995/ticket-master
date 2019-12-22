@@ -11,11 +11,11 @@ const ticketSchema=new Schema({
         required:true,
         ref:'Customer'
     },
-    employee:{
+    employees:[{
         type:Schema.Types.ObjectId,
         required:true,
         ref:'employee'
-    },
+    }],
     department:{
         type:Schema.Types.ObjectId,
         required:true,
@@ -33,6 +33,11 @@ const ticketSchema=new Schema({
     priorities:{
         type:String,
         required:true
+    },
+    user:{
+        type:Schema.Types.ObjectId,
+        required:true,
+        ref:'user'
     },
     isResolved:{
         type:Boolean,

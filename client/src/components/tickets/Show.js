@@ -1,0 +1,57 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+
+import {connect} from 'react-redux'
+
+
+ class TicketShow extends React.Component{
+
+    findCustomer =  (id) => {
+        return this.props.customers.find(customer => customer._id == id )
+    }
+
+    findDepartment = (id) => {
+        return this.props.departments.find(department => department._id == id)
+    }
+
+    findEmployees = (id) => {
+        return this.props.employees.find(employee => employee._id == id)
+    }
+
+    render(){
+        let sty={width:'25rem',backgroundColor:'grey'}
+        return (
+            <div>
+                <br/>
+                {this.props.ticket  && (
+                    <div className="card" style={sty}>
+                    <div className="card-body">
+                    <h2>Code Number - {this.props.ticket.code}</h2>
+                    
+                    <p className="lead">Customer -{this.props.ticket.customer.name? this.props.ticket.customer.name : this.findCustomer(this.props.ticket.customer).name}  </p>
+                    <p className="lead">Employees - {this.props.ticket.employees.name ? this.props.ticket.employees.map((emp,index)=>(index===this.props.ticket.employees.length-1)?`${emp.name}`: `${emp.name}, `): this.props.ticket.employees.map((emp,index)=>(index===this.props.ticket.employees.length-1)?`${this.findEmployees(emp).name}`: `${this.findEmployees(emp).name}, `)} </p>
+                    <p className="lead">Department - {this.props.ticket.department.name? this.props.ticket.department.name: this.findDepartment(this.props.ticket.department).name}</p>
+                    <p className="lead">Message - {this.props.ticket.message}</p>
+                    <p className="lead">Priority - {this.props.ticket.priorities}</p>
+                    <Link className="btn btn-primary" to={`/tickets/edit/${this.props.ticket._id}`}>Edit</Link>
+                    </div>
+                    </div>
+                )}
+                
+
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = (state,props) => {
+    const id = props.match.params.id
+    return {
+        ticket: state.tickets.find(ticket=> ticket._id == id ),
+        employees: state.employees,
+        customers: state.customers,
+        departments: state.departments,
+    }
+}
+
+export default connect(mapStateToProps)(TicketShow)

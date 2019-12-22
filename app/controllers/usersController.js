@@ -1,7 +1,4 @@
 const {User}=require('../models/user')
-const {authenticateUser}=require('../middleware/authentication')
-const express=require('express')
-const router=express.Router()
 
 module.exports.create=(req,res)=>{
     const body=req.body
@@ -10,8 +7,8 @@ module.exports.create=(req,res)=>{
     .then((user)=>{
         res.json(user)
     })
-    .catch((err)=>{
-        res.send(err)
+    .catch((error)=>{
+        res.send(error)
     })
 }
 
@@ -32,7 +29,6 @@ module.exports.loginCreate=(req,res)=>{
 module.exports.account=(req,res)=>{
     const {user}=req
     res.send(user)
-
 }
 
 module.exports.logout=(req,res)=>{

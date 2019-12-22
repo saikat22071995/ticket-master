@@ -6,6 +6,11 @@ const DepartmentSchema=new Schema({
         type:String,
         required:true
     },
+    user:{
+        type:Schema.Types.ObjectId,
+        required:true,
+        ref:'user'
+    },
     createdAt:{
         type:Date,
         default:Date.now()
