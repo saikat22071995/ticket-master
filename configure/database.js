@@ -2,12 +2,12 @@ const mongoose=require('mongoose')
 
 const configureDB=()=>{
     //DB configuration
-    mongoose.connect('mongodb://localhost:27017/ticket-master',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true,useFindAndModify:false})
+    mongoose.connect('process.env.MONGODB_URL',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true,useFindAndModify:false})
     .then(()=>{
-        console.log('connected to db')
+        console.log('database connected:'+process.env.MONGODB_URL)
     })
     .catch(()=>{
-        console.log(err)
+        console.log('error to db:'+process.env.MONGODB_URL)
     })
 }
 module.exports=configureDB
