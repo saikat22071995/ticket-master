@@ -11,10 +11,10 @@ class TicketForm extends React.Component{
         super(props)
         this.state = {
             code: props.ticket? props.ticket.code: '',
-            customer: props.ticket? props.ticket.customer: '',
-            department: props.ticket? props.ticket.department: '',
+            customer: props.ticket? props.ticket.customer._id: '',
+            department: props.ticket? props.ticket.department._id: '',
             emps: [],
-            employee: props.ticket? props.ticket.employee: [],
+            employee: props.ticket? props.ticket.employees: [],
             employeesnew: [],
             message: props.ticket? props.ticket.message: '',
             priorities: props.ticket? props.ticket.priorities: '',
@@ -113,6 +113,8 @@ class TicketForm extends React.Component{
     render() {
         return (
             <div>
+                <div className="row">
+                <div className="col-md-6">
                 <Form onSubmit={this.handleSubmit}>
 
                 <FormGroup>
@@ -146,6 +148,7 @@ class TicketForm extends React.Component{
                             <Select
                                 name="employee"
                                 placeholder="Select"
+                                // value={this.state.employee}
                                 options={this.state.employeesnew}
                                 onChange={this.handleMultiChange}
                                 isMulti
@@ -179,8 +182,10 @@ class TicketForm extends React.Component{
       </FormGroup>
                  <br/>
 
-                <Button type="submit">Submit</Button>
+                <button type="submit" className="btn btn-primary">Submit</button>
                 </Form>
+            </div>
+            </div>
             </div>
         )
     }

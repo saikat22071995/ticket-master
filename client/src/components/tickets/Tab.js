@@ -75,7 +75,7 @@ class TicketTab extends React.Component {
                                                         <th>Employees</th>
                                                         <th>Message</th>
                                                         <th>priorities</th>
-                                                        
+                                                        <th>Action</th>
                                                         <th>Remove</th>
                                                         <th>Complete</th>
                                                     </tr>
@@ -116,7 +116,7 @@ class TicketTab extends React.Component {
                                                         <th>Employees</th>
                                                         <th>Message</th>
                                                         <th>Priority</th>
-                                                        
+                                                        <th>Action</th>
                                                         <th>Remove</th>
                                                         <th>Not Complete</th>
                                                     </tr>

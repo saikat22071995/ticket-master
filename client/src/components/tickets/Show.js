@@ -29,7 +29,7 @@ import {connect} from 'react-redux'
                     <h2>Code Number - {this.props.ticket.code}</h2>
                     
                     <p className="lead">Customer -{this.props.ticket.customer.name? this.props.ticket.customer.name : this.findCustomer(this.props.ticket.customer).name}  </p>
-                    <p className="lead">Employees - {this.props.ticket.employees.name ? this.props.ticket.employees.map((emp,index)=>(index===this.props.ticket.employees.length-1)?`${emp.name}`: `${emp.name}, `): this.props.ticket.employees.map((emp,index)=>(index===this.props.ticket.employees.length-1)?`${this.findEmployees(emp).name}`: `${this.findEmployees(emp).name}, `)} </p>
+                    <p className="lead">Employees - {this.props.ticket.employees[0].name ? this.props.ticket.employees.map((emp,index)=>(index===this.props.ticket.employees.length-1)?`${emp.name}`: `${emp.name}, `): this.props.ticket.employees.map((emp,index)=>(index===this.props.ticket.employees.length-1)?`${this.findEmployees(emp).name}`: `${this.findEmployees(emp).name}, `)} </p>
                     <p className="lead">Department - {this.props.ticket.department.name? this.props.ticket.department.name: this.findDepartment(this.props.ticket.department).name}</p>
                     <p className="lead">Message - {this.props.ticket.message}</p>
                     <p className="lead">Priority - {this.props.ticket.priorities}</p>

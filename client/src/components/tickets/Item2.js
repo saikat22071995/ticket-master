@@ -13,7 +13,7 @@ function TicketItem2(props){
             <td>{employees}</td>
             <td>{message}</td>
             <td>{priorities}</td>
-            {/* <td><Link to={`/tickets/${id}`}><Button color="info">show</Button></Link></td> */}
+            <td><Link to={`/tickets/${id}`}><Button color="info">Show</Button></Link></td>
             <td><Button color="danger" onClick = {()=>{
                 return handleRemove(id)
             }}>{text}</Button></td>

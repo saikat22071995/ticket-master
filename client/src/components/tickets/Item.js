@@ -16,7 +16,7 @@ function TicketItem(props){
             <td>{message}</td>
             <td>{priorities}</td>
             {/* <Link className="btn btn-primary" to={`/tickets/edit/${id}`}>Edit</Link> */}
-            {/* <td><Link to={`/tickets/${id}`}><Button color="info">show</Button></Link></td> */}
+            <td><Link to={`/tickets/${id}`}><Button color="info">Show</Button></Link></td>
             <td><Button color="danger" onClick = {()=>{
                 return handleRemove(id)
             }}>{text}</Button></td>
