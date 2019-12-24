@@ -10,6 +10,10 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "^10.3.0", 
+    "npm": "^6.8.0" 
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -41,4 +45,5 @@
     "sweetalert": "^2.1.2",
     "validator": "^12.1.0"
   }
+  
 }
