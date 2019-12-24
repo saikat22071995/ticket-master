@@ -19,7 +19,7 @@ class UserRegister extends React.Component{
             email:this.state.email,
             password:this.state.password
         }
-        axios.post('http://localhost:3025/users/register',formdata)
+        axios.post('http://icket-master-saikat.herokuapp.com/users/register',formdata)
         .then((response)=>{
             console.log(response.data)
             console.log(this.props)
