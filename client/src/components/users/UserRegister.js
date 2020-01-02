@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../../config/config'
 import swal from 'sweetalert'
 class UserRegister extends React.Component{
     constructor(props){
@@ -19,7 +19,7 @@ class UserRegister extends React.Component{
             email:this.state.email,
             password:this.state.password
         }
-        axios.post('https://ticket-master-saikat.herokuapp.com/api/users/register',formdata)
+        axios.post('/users/register',formdata)
         .then((response)=>{
             console.log(response.data)
             console.log(this.props)
